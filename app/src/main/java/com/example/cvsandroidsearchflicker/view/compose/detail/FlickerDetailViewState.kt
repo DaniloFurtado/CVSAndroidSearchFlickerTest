@@ -5,5 +5,6 @@ import com.example.domain.model.FlickerItem
 data class FlickerDetailViewState(
     val isLoading: Boolean = false,
     val error: String? = null,
-    val data: FlickerItem? = null
+    val data: FlickerItem? = null,
+    val imageKey: String = ""
 )

@@ -5,10 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.cvsandroidsearchflicker.view.compose.list.FlickerSearchViewState
 import com.example.domain.usecase.GetFlickrDataUseCase
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class FlickerSearchViewModel(
     private val getFlickrDataUseCase: GetFlickrDataUseCase,
@@ -25,14 +27,16 @@ class FlickerSearchViewModel(
                     it.copy(isLoading = true)
                 }
 
-                getFlickrDataUseCase(tags).let { result ->
-                    if (result?.error != null) {
-                        _viewState.update {
-                            it.copy(isLoading = false, error = result.error?.message)
-                        }
-                    } else {
-                        _viewState.update {
-                            it.copy(isLoading = false, data = result?.data)
+                withContext(Dispatchers.Main) {
+                    getFlickrDataUseCase(tags).let { result ->
+                        if (result?.error != null) {
+                            _viewState.update {
+                                it.copy(isLoading = false, error = result.error?.message)
+                            }
+                        } else {
+                            _viewState.update {
+                                it.copy(isLoading = false, data = result?.data)
+                            }
                         }
                     }
                 }

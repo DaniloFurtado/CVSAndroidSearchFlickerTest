@@ -15,8 +15,13 @@ class FlickerDetailViewModel(
     private val _viewState = MutableStateFlow(FlickerDetailViewState())
     val viewState = _viewState.asStateFlow()
 
-    fun setFlickerDetail(item: FlickerItem){
+    fun setFlickerDetail(item: FlickerItem, imageKey: String){
         _viewState
-            .update { it.copy(data = item) }
+            .update {
+                it.copy(
+                    data = item,
+                    imageKey = imageKey
+                )
+            }
     }
 }
