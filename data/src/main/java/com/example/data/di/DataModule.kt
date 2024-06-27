@@ -2,7 +2,7 @@ package com.example.data.di
 
 import com.example.data.mapper.FlickerDataMapper
 import com.example.data.repository.FlickerRepositoryImpl
-import com.example.data.source.api.FlickerApi
+import com.example.data.source.remote.api.FlickerApi
 import com.example.domain.repository.FlickrRepository
 import org.koin.dsl.module
 import retrofit2.Retrofit

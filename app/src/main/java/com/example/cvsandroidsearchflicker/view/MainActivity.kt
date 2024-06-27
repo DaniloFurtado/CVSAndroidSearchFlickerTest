@@ -16,6 +16,7 @@ import com.example.cvsandroidsearchflicker.viewmodel.detail.FlickerDetailViewMod
 import com.example.cvsandroidsearchflicker.viewmodel.list.FlickerSearchViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class MainActivity : ComponentActivity() {
     private val _flickrViewModel: FlickerSearchViewModel by viewModel()
@@ -35,20 +36,9 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CVSAndroidSearchFlickerTheme {
-        Greeting("Android")
+    override fun onDestroy() {
+        super.onDestroy()
+        unloadKoinModules(appModule)
     }
 }

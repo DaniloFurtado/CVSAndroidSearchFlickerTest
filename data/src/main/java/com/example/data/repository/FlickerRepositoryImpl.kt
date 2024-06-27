@@ -1,7 +1,7 @@
 package com.example.data.repository
 
 import com.example.data.mapper.FlickerDataMapper
-import com.example.data.source.api.FlickerApi
+import com.example.data.source.remote.api.FlickerApi
 import com.example.domain.model.FlickerData
 import com.example.domain.repository.FlickrRepository
 

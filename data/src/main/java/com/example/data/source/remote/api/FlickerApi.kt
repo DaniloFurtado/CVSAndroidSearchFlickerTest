@@ -1,6 +1,6 @@
-package com.example.data.source.api
+package com.example.data.source.remote.api
 
-import com.example.data.source.payload.FlickerResponse
+import com.example.data.source.remote.payload.FlickerResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

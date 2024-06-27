@@ -1,7 +1,7 @@
 package com.example.data.mapper
 
-import com.example.data.source.payload.FlickerItemResponse
-import com.example.data.source.payload.FlickerResponse
+import com.example.data.source.remote.payload.FlickerItemResponse
+import com.example.data.source.remote.payload.FlickerResponse
 import com.example.domain.model.FlickerData
 import com.example.domain.model.FlickerItem
 import com.example.domain.model.Media

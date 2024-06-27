@@ -61,8 +61,8 @@ fun FlickerSearchView(
 @Preview
 @Composable
 fun ImageSearchAppPreview() {
-    /*SharedTransitionLayout {
-        FlickerSearchView(
+    SharedTransitionLayout {
+        /*FlickerSearchView(
             uiState = FlickerSearchViewState(
                 isLoading = false,
                 data = FlickerData(
@@ -88,7 +88,7 @@ fun ImageSearchAppPreview() {
             ),
             onSearchTextChanged = { },
             sharedTransitionScope = this@SharedTransitionLayout,
-            animatedContentScope = AnimatedContentScope
-        )
-    }*/
+            animatedContentScope =
+        )*/
+    }
 }
