@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.cvsandroidsearchflicker.view.compose.detail.FlickerDetailView
 import com.example.cvsandroidsearchflicker.view.compose.list.FlickerSearchView
@@ -42,6 +43,8 @@ fun AppNavHost(
                     sharedTransitionScope = this@SharedTransitionLayout,
                     animatedContentScope = this@composable
                 )
+
+
             }
 
             composable<Screen.Detail> { _ ->
