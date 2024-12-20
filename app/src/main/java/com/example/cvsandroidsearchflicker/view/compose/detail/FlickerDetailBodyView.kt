@@ -7,10 +7,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -31,6 +33,7 @@ fun FlickerDetailBodyView(
     Column(
         modifier = modifier
             .padding(innerPadding)
+            .padding(4.dp)
     ) {
         with(sharedTransitionScope) {
             AsyncImage(
@@ -41,7 +44,8 @@ fun FlickerDetailBodyView(
                     .sharedElement(
                         sharedTransitionScope.rememberSharedContentState(key = imageKey),
                         animatedVisibilityScope = animatedContentScope
-                    ),
+                    )
+                    .clip(RoundedCornerShape(16.dp)),
                 contentScale = ContentScale.Fit
             )
             Column(

@@ -54,11 +54,11 @@ fun TwoColumnGrid(
                             .build(),
                         contentDescription = "Image Description",
                         modifier = Modifier
-                            .fillMaxSize()
                             .sharedElement(
                                 sharedTransitionScope.rememberSharedContentState(key = imageKey),
                                 animatedVisibilityScope = animatedContentScope
-                            ),
+                            )
+                            .fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
                 }
