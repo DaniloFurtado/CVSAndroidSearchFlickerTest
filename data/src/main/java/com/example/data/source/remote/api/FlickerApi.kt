@@ -4,6 +4,8 @@ import com.example.data.source.remote.payload.FlickerResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+private const val GET_ITEMS = "services/feeds/photos_public.gne"
+
 interface FlickerApi {
     @GET(GET_ITEMS)
     suspend fun getItems(
@@ -11,9 +13,4 @@ interface FlickerApi {
         @Query("format") format: String = "json",
         @Query("nojsoncallback") noJsonCallback: Int = 1
     ): FlickerResponse
-
-
-    companion object {
-        private const val GET_ITEMS = "services/feeds/photos_public.gne"
-    }
 }

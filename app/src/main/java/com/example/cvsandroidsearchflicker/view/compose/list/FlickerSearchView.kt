@@ -9,14 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.currentComposer
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.cvsandroidsearchflicker.view.compose.common.LoadingIndicator
 import com.example.cvsandroidsearchflicker.view.compose.common.ShowToast
-import com.example.domain.model.FlickerData
 import com.example.domain.model.FlickerItem
-import com.example.domain.model.Media
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable

@@ -23,26 +23,37 @@ class FlickerSearchViewModel(
     fun getFlickrData(tags: String) {
         if (tags.isNotEmpty()) {
             viewModelScope.launch(dispatcher) {
-                _viewState.update {
-                    it.copy(isLoading = true)
-                }
+                showLoading()
 
-                withContext(Dispatchers.Main) {
-                    getFlickrDataUseCase(tags).let { result ->
-                        if (result?.error != null) {
+                getFlickrDataUseCase(tags).let { result ->
+                    withContext(Dispatchers.Main) {
+                        if (result?.data != null) {
                             _viewState.update {
-                                it.copy(isLoading = false, error = result.error?.message)
+                                it.copy(data = result.data)
                             }
                         } else {
                             _viewState.update {
-                                it.copy(isLoading = false, data = result?.data)
+                                it.copy(error = result?.error?.message)
                             }
                         }
+                        hideLoading()
                     }
                 }
             }
         } else {
             _viewState.value = FlickerSearchViewState()
+        }
+    }
+
+    private fun showLoading() {
+        _viewState.update {
+            it.copy(isLoading = true)
+        }
+    }
+
+    private fun hideLoading() {
+        _viewState.update {
+            it.copy(isLoading = false)
         }
     }
 

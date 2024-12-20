@@ -14,7 +14,7 @@ class GetFlickrDataUseCase(
                 .getItems(tags)
                 .let { FlickerDataResult(data = it) }
         } catch (ex: Throwable) {
-            FlickerDataResult(error = ex)
+            FlickerDataResult(error = ex, data = null)
         }
     }
 }
